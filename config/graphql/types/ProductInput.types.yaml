@@ -1,0 +1,16 @@
+ProductInput:
+    type: input-object
+    config:
+        fields:
+            name:
+                type: "String"
+                description: "Name Product"
+            price:
+                type: "Float"
+                description: "Price Product"
+            description:
+                type: "String"
+                description: "Description Product"
+            slug:
+                type: "String"
+                description: "Slug Product"
