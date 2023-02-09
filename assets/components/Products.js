@@ -1,53 +1,58 @@
-// ./assets/js/components/Posts.js
+// ./assets/js/components/Users.js
 
 import React, {Component} from 'react';
-import axios from 'axios';
+import client from "../service/clientProducts";
+import LIST_PRODUCTS from "../query/queryProducts";
+import {ApolloProvider} from "@apollo/client";
 
-
-class Posts extends Component {
+class Products extends Component {
     constructor() {
         super();
-
-        this.state = { posts: [], loading: true}
+        this.state = { products: [], loading: true};
     }
 
     componentDidMount() {
-        this.getPosts();
+        this.getProducts();
     }
 
-    getPosts() {
-        axios.get(`https://jsonplaceholder.typicode.com/posts/`).then(res => {
-            const posts = res.data.slice(0,15);
-            this.setState({ posts, loading: false })
+    getProducts() {
+        client
+        .query({
+            query: LIST_PRODUCTS
         })
+        .then((result) => {
+            console.log(result);
+            this.setState({ products: result.data.products_collection.products, loading: result.loading})
+        });
     }
 
     render() {
         const loading = this.state.loading;
-        return (
+        return(
+            <ApolloProvider client={client}>
             <div>
                 <section className="row-section">
                     <div className="container">
                         <div className="row">
-                            <h2 className="text-center"><span>List of posts</span>Created with <i
-                                className="fa fa-heart"></i> by yemiwebby </h2>
+                            <h2 className="text-center"><span>List of products</span>Created with <i
+                                className="fa fa-heart"></i> by Guilherme</h2>
                         </div>
-
                         {loading ? (
                             <div className={'row text-center'}>
                                 <span className="fa fa-spin fa-spinner fa-4x"></span>
                             </div>
-
                         ) : (
                             <div className={'row'}>
-                                {this.state.posts.map(post =>
-                                    <div className="col-md-10 offset-md-1 row-block" key={post.id}>
+                                { this.state.products.map(product =>
+                                    <div className="col-md-10 offset-md-1 row-block" key={product.id}>
                                         <ul id="sortable">
                                             <li>
                                                 <div className="media">
                                                     <div className="media-body">
-                                                        <h4>{post.title}</h4>
-                                                        <p>{post.body}</p>
+                                                        <h4>{product.name} | R${product.price}</h4>
+                                                    </div>
+                                                    <div className="media-right align-self-center">
+                                                        <a href="#" className="btn btn-default">Buy</a>
                                                     </div>
                                                 </div>
                                             </li>
@@ -59,8 +64,8 @@ class Posts extends Component {
                     </div>
                 </section>
             </div>
+            </ApolloProvider>
         )
     }
 }
-
-export default Posts;
+export default Products;

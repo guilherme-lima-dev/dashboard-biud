@@ -9,12 +9,9 @@ Product:
             name:
                 type: "String"
                 description: "Product Name"
+            quantity:
+                type: "Int"
+                description: "Product Quantity"
             price:
                 type: "Float"
                 description: "Product Price"
-            description:
-                type: "String"
-                description: "Product Description"
-            slug:
-                type: "String"
-                description: "Product Slug"

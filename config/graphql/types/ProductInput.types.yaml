@@ -5,12 +5,9 @@ ProductInput:
             name:
                 type: "String"
                 description: "Name Product"
+            quantity:
+                type: "Int"
+                description: "Price Quantity"
             price:
                 type: "Float"
                 description: "Price Product"
-            description:
-                type: "String"
-                description: "Description Product"
-            slug:
-                type: "String"
-                description: "Slug Product"
