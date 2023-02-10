@@ -30,8 +30,6 @@ class PurchaseController extends AbstractController
 
         $arrayPurchaseProduct = PurchaseProduct::fromERP($products, $purchase);
 
-
-
         $logger->info(json_encode($content));
         $bus->dispatch(new PurchaseMessage($arrayPurchaseProduct, $client));
 

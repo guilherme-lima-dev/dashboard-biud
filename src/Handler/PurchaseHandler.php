@@ -31,49 +31,61 @@ class PurchaseHandler
      */
     public function __invoke(PurchaseMessage $message)
     {
-        echo "inicio \n";
+        echo "Executando fila...\n";
+
+        //verificação existencia do cliente
         $client = $this->entityManager->getRepository(Client::class)->findOneBy(['email' => $message->getClient()->getEmail()]);
         if(!$client){
-            echo "ENTROU CLIENTE \n";
             $this->entityManager->persist($message->getClient());
             $this->entityManager->flush($message->getClient());
+            //atualizando cliente para as outras classes
             $client = $this->entityManager->getRepository(Client::class)->findOneBy(['email' => $message->getClient()->getEmail()]);
         }
-        echo "passou cliente \n";
 
+        //a purchase é igual então eu só resgato 1 e já verifico se ela existe em nossa base
         $purchase = $message->getArrayPurchaseProduct()[0]->getPurchase();
         $existPurchase = $this->entityManager->getRepository(Purchase::class)->findOneBy(['codReference' => $purchase->getCodReference()]);
-        echo "Veio aqui";
+
+        //caso exista uma ordem igual nós já cancelamos toda a solicitação e saimos do processamento
         if($existPurchase) {
-            echo"TCHAAAAAU \n";
+            echo "Ordem existente! \n";
             return;
         }
         $purchase->setClient($client);
         $this->entityManager->persist($purchase);
         $this->entityManager->flush($purchase);
 
-        echo "passou purchase \n";
-        foreach ($message->getArrayPurchaseProduct() as $purchaseProduct){
-            echo "inicio FOR \n";
+
+        $this->savePurchaseProduct($message, $purchase);
+
+        echo "Deu bom! \n";
+    }
+
+    /**
+     * @param PurchaseMessage $message
+     * @param Purchase|null $purchase
+     * @return void
+     * @throws ORMException
+     * @throws OptimisticLockException
+     */
+    public function savePurchaseProduct(PurchaseMessage $message, ?Purchase $purchase): void
+    {
+        foreach ($message->getArrayPurchaseProduct() as $purchaseProduct) {
             $product = $purchaseProduct->getProduct();
 
             $existProduct = $this->entityManager->getRepository(Product::class)->findOneBy(['key' => $product->getKey()]);
-            var_dump($existProduct);
-            if(!$existProduct){
-                echo "init product: \n";
+
+            //verifico se o produto já existe e caso não exista eu crio um
+            if (!$existProduct) {
                 $this->entityManager->persist($product);
                 $this->entityManager->flush($product);
                 $existProduct = $this->entityManager->getRepository(Product::class)->findOneBy(['key' => $product->getKey()]);
-                echo "end product: \n";
             }
             $purchaseProduct->setProduct($existProduct);
             $purchaseProduct->setPurchase($purchase);
-            var_dump($purchaseProduct);
 
             $this->entityManager->persist($purchaseProduct);
             $this->entityManager->flush($purchaseProduct);
-            echo "final FOR \n";
         }
-        echo "CORRE PRO ABRAÇO \n";
     }
 }
