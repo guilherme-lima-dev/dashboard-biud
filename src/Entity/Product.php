@@ -14,52 +14,72 @@ class Product
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    private ?string $title = null;
 
-    #[ORM\Column]
-    private ?int $quantity = null;
+    #[ORM\Column(length: 255)]
+    private ?string $key = null;
 
-    #[ORM\Column]
-    private ?float $price = null;
+    /**
+     * @param array $lineProducts
+     * @return array
+     */
+    public static function fromERP(array $lineProducts):array
+    {
+        $arrayProducts = [];
+        $vars = array_keys(get_class_vars('App\Entity\Product')); //array com as variaveis da classe Products
+        unset($vars[0]);
+        $fieldsLine = array_keys($lineProducts[0]);
+        $fieldsProduct = array_intersect($vars, $fieldsLine);
+        foreach ($lineProducts as $key => $line){
+            $product = new Product();
+
+            foreach ($fieldsProduct as $field){
+
+                $methodName = "set".ucfirst($field);
+                $product->$methodName($line[$field]);
+
+            }
+            if($product->getKey() == null){
+                $product->setKey((string)$line['id']);
+            }
+            $arrayProducts[] = [$product, $line['quantity'], $line['price']];
+        }
+
+        return $arrayProducts;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getKey(): ?string
+    {
+        return $this->key;
+    }
+
+    /**
+     * @param string|null $key
+     */
+    public function setKey(?string $key): void
+    {
+        $this->key = $key;
+    }
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getTitle(): ?string
     {
-        return $this->name;
+        return $this->title;
     }
 
-    public function setName(string $name): self
+    public function setTitle(string $title): self
     {
-        $this->name = $name;
+        $this->title = $title;
 
         return $this;
     }
 
-    public function getQuantity(): ?int
-    {
-        return $this->quantity;
-    }
 
-    public function setQuantity(int $quantity): self
-    {
-        $this->quantity = $quantity;
-
-        return $this;
-    }
-
-    public function getPrice(): ?float
-    {
-        return $this->price;
-    }
-
-    public function setPrice(float $price): self
-    {
-        $this->price = $price;
-
-        return $this;
-    }
 }

@@ -6,12 +6,9 @@ Product:
             id:
                 type: "Int"
                 description: "Product ID"
-            name:
+            title:
                 type: "String"
                 description: "Product Name"
-            quantity:
-                type: "Int"
-                description: "Product Quantity"
-            price:
-                type: "Float"
-                description: "Product Price"
+            key:
+                type: "String"
+                description: "Product Code"

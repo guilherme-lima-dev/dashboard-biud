@@ -3,9 +3,9 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.45">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>497</IntrospectionStateNumber>
+      <IntrospectionStateNumber>641</IntrospectionStateNumber>
       <ServerVersion>13.3</ServerVersion>
-      <StartupTime>1675929410</StartupTime>
+      <StartupTime>1675963109</StartupTime>
       <TimeZones>true ACDT
 true ACSST
 false ACST
@@ -1423,7 +1423,7 @@ false posixrules
 13111||10|C|G
 13111||-9223372036854775808|U|G
 13111||10|U|G</Grants>
-      <IntrospectionStateNumber>497</IntrospectionStateNumber>
+      <IntrospectionStateNumber>641</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>tanya</OwnerName>
     </database>
@@ -4754,111 +4754,350 @@ false posixrules
     <schema id="253" parent="2" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>497</IntrospectionStateNumber>
+      <IntrospectionStateNumber>641</IntrospectionStateNumber>
       <ObjectId>2200</ObjectId>
       <StateNumber>287</StateNumber>
       <OwnerName>tanya</OwnerName>
     </schema>
-    <sequence id="254" parent="253" name="product_id_seq">
+    <sequence id="254" parent="253" name="client_id_seq">
       <DasType>bigint|0s</DasType>
-      <ObjectId>16408</ObjectId>
-      <StateNumber>496</StateNumber>
+      <ObjectId>16577</ObjectId>
+      <StateNumber>549</StateNumber>
       <OwnerName>tanya</OwnerName>
     </sequence>
-    <table id="255" parent="253" name="doctrine_migration_versions">
-      <ObjectId>16402</ObjectId>
-      <StateNumber>495</StateNumber>
+    <sequence id="255" parent="253" name="product_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>16579</ObjectId>
+      <StateNumber>549</StateNumber>
+      <OwnerName>tanya</OwnerName>
+    </sequence>
+    <sequence id="256" parent="253" name="purchase_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>16581</ObjectId>
+      <StateNumber>549</StateNumber>
+      <OwnerName>tanya</OwnerName>
+    </sequence>
+    <sequence id="257" parent="253" name="purchase_product_id_seq">
+      <DasType>bigint|0s</DasType>
+      <ObjectId>16583</ObjectId>
+      <StateNumber>549</StateNumber>
+      <OwnerName>tanya</OwnerName>
+    </sequence>
+    <table id="258" parent="253" name="client">
+      <ObjectId>16585</ObjectId>
+      <StateNumber>549</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>tanya</OwnerName>
     </table>
-    <table id="256" parent="253" name="product">
-      <ObjectId>16410</ObjectId>
-      <StateNumber>496</StateNumber>
+    <table id="259" parent="253" name="doctrine_migration_versions">
+      <ObjectId>16571</ObjectId>
+      <StateNumber>548</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>tanya</OwnerName>
     </table>
-    <column id="257" parent="255" name="version">
-      <DasType>varchar(191)|0s</DasType>
+    <table id="260" parent="253" name="product">
+      <ObjectId>16594</ObjectId>
+      <StateNumber>549</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>tanya</OwnerName>
+    </table>
+    <table id="261" parent="253" name="purchase">
+      <ObjectId>16602</ObjectId>
+      <StateNumber>549</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>tanya</OwnerName>
+    </table>
+    <table id="262" parent="253" name="purchase_product">
+      <ObjectId>16608</ObjectId>
+      <StateNumber>549</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>tanya</OwnerName>
+    </table>
+    <column id="263" parent="258" name="id">
+      <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>495</StateNumber>
-      <TypeId>1043</TypeId>
-    </column>
-    <column id="258" parent="255" name="executed_at">
-      <DasType>timestamp(0)|0s</DasType>
-      <DefaultExpression>NULL::timestamp without time zone</DefaultExpression>
-      <Position>2</Position>
-      <StateNumber>495</StateNumber>
-      <TypeId>1114</TypeId>
-    </column>
-    <column id="259" parent="255" name="execution_time">
-      <DasType>integer|0s</DasType>
-      <Position>3</Position>
-      <StateNumber>495</StateNumber>
+      <StateNumber>549</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <index id="260" parent="255" name="doctrine_migration_versions_pkey">
-      <ColNames>version</ColNames>
+    <column id="264" parent="258" name="name">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="265" parent="258" name="email">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="266" parent="258" name="code_unique">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <index id="267" parent="258" name="client_pkey">
+      <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16406</ObjectId>
+      <ObjectId>16591</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>495</StateNumber>
+      <StateNumber>549</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="268" parent="258" name="uniq_c7440455cf240ed5">
+      <ColNames>code_unique</ColNames>
+      <ObjectId>16593</ObjectId>
+      <StateNumber>549</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
       <CollationNames>default</CollationNames>
       <CollationIds>100</CollationIds>
       <CollationParentNames>pg_catalog</CollationParentNames>
     </index>
-    <key id="261" parent="255" name="doctrine_migration_versions_pkey">
+    <key id="269" parent="258" name="client_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16407</ObjectId>
+      <ObjectId>16592</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>495</StateNumber>
-      <UnderlyingIndexId>16406</UnderlyingIndexId>
+      <StateNumber>549</StateNumber>
+      <UnderlyingIndexId>16591</UnderlyingIndexId>
     </key>
-    <column id="262" parent="256" name="id">
+    <column id="270" parent="259" name="version">
+      <DasType>varchar(191)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>548</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="271" parent="259" name="executed_at">
+      <DasType>timestamp(0)|0s</DasType>
+      <DefaultExpression>NULL::timestamp without time zone</DefaultExpression>
+      <Position>2</Position>
+      <StateNumber>548</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="272" parent="259" name="execution_time">
+      <DasType>integer|0s</DasType>
+      <Position>3</Position>
+      <StateNumber>548</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <index id="273" parent="259" name="doctrine_migration_versions_pkey">
+      <ColNames>version</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16575</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>548</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+      <CollationNames>default</CollationNames>
+      <CollationIds>100</CollationIds>
+      <CollationParentNames>pg_catalog</CollationParentNames>
+    </index>
+    <key id="274" parent="259" name="doctrine_migration_versions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16576</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>548</StateNumber>
+      <UnderlyingIndexId>16575</UnderlyingIndexId>
+    </key>
+    <column id="275" parent="260" name="id">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <StateNumber>496</StateNumber>
+      <StateNumber>549</StateNumber>
       <TypeId>23</TypeId>
     </column>
-    <column id="263" parent="256" name="name">
+    <column id="276" parent="260" name="title">
       <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
-      <StateNumber>496</StateNumber>
+      <StateNumber>549</StateNumber>
       <TypeId>1043</TypeId>
     </column>
-    <column id="264" parent="256" name="quantity">
-      <DasType>integer|0s</DasType>
+    <column id="277" parent="260" name="key">
+      <DasType>varchar(255)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
-      <StateNumber>496</StateNumber>
-      <TypeId>23</TypeId>
+      <StateNumber>549</StateNumber>
+      <TypeId>1043</TypeId>
     </column>
-    <column id="265" parent="256" name="price">
-      <DasType>double precision|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>4</Position>
-      <StateNumber>496</StateNumber>
-      <TypeId>701</TypeId>
-    </column>
-    <index id="266" parent="256" name="product_pkey">
+    <index id="278" parent="260" name="product_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16413</ObjectId>
+      <ObjectId>16600</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>496</StateNumber>
+      <StateNumber>549</StateNumber>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="267" parent="256" name="product_pkey">
+    <key id="279" parent="260" name="product_pkey">
       <NameSurrogate>1</NameSurrogate>
-      <ObjectId>16414</ObjectId>
+      <ObjectId>16601</ObjectId>
       <Primary>1</Primary>
-      <StateNumber>496</StateNumber>
-      <UnderlyingIndexId>16413</UnderlyingIndexId>
+      <StateNumber>549</StateNumber>
+      <UnderlyingIndexId>16600</UnderlyingIndexId>
+    </key>
+    <column id="280" parent="261" name="id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="281" parent="261" name="client_id">
+      <DasType>integer|0s</DasType>
+      <Position>2</Position>
+      <StateNumber>592</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="282" parent="261" name="cod_reference">
+      <DasType>varchar(255)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="283" parent="261" name="discounts">
+      <DasType>double precision|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="284" parent="261" name="value">
+      <DasType>double precision|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <column id="285" parent="261" name="date">
+      <DasType>timestamp(0)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>1114</TypeId>
+    </column>
+    <foreign-key id="286" parent="261" name="fk_6117d13b19eb6921">
+      <ColNames>client_id</ColNames>
+      <ObjectId>16615</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>549</StateNumber>
+      <RefTableId>16585</RefTableId>
+      <RefTableName>client</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="287" parent="261" name="purchase_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16605</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>549</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="288" parent="261" name="idx_6117d13b19eb6921">
+      <ColNames>client_id</ColNames>
+      <ObjectId>16630</ObjectId>
+      <StateNumber>598</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="289" parent="261" name="purchase_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16606</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>549</StateNumber>
+      <UnderlyingIndexId>16605</UnderlyingIndexId>
+    </key>
+    <column id="290" parent="262" name="id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="291" parent="262" name="purchase_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="292" parent="262" name="product_id">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="293" parent="262" name="quantity">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>23</TypeId>
+    </column>
+    <column id="294" parent="262" name="value">
+      <DasType>double precision|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>549</StateNumber>
+      <TypeId>701</TypeId>
+    </column>
+    <foreign-key id="295" parent="262" name="fk_c890ced4558fbeb9">
+      <ColNames>purchase_id</ColNames>
+      <ObjectId>16620</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>549</StateNumber>
+      <RefTableId>16602</RefTableId>
+      <RefTableName>purchase</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <foreign-key id="296" parent="262" name="fk_c890ced44584665a">
+      <ColNames>product_id</ColNames>
+      <ObjectId>16625</ObjectId>
+      <RefColNames>id</RefColNames>
+      <RefColPositions>1</RefColPositions>
+      <StateNumber>549</StateNumber>
+      <RefTableId>16594</RefTableId>
+      <RefTableName>product</RefTableName>
+      <RefTableKind>table</RefTableKind>
+    </foreign-key>
+    <index id="297" parent="262" name="purchase_product_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16611</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>549</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="298" parent="262" name="idx_c890ced4558fbeb9">
+      <ColNames>purchase_id</ColNames>
+      <ObjectId>16613</ObjectId>
+      <StateNumber>549</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="299" parent="262" name="idx_c890ced44584665a">
+      <ColNames>product_id</ColNames>
+      <ObjectId>16614</ObjectId>
+      <StateNumber>549</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="300" parent="262" name="purchase_product_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16612</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>549</StateNumber>
+      <UnderlyingIndexId>16611</UnderlyingIndexId>
     </key>
   </database-model>
 </dataSource>

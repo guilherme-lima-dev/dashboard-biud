@@ -1,0 +1,10 @@
+ProductInput:
+    type: input-object
+    config:
+        fields:
+            title:
+                type: "String"
+                description: "Name Product"
+            key:
+                type: "String"
+                description: "Code Product"

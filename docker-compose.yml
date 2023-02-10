@@ -16,6 +16,7 @@ services:
       PHP_IDE_CONFIG: "serverName=api-symfony-graphql"
     volumes:
       - ./:/app
+      - ./supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
       - ./xdebug.ini:/usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
 
   db:
@@ -36,3 +37,13 @@ services:
     ports:
       - '5672:5672'
       - '15672:15672'
+
+#  supervisor:
+#    build: ./supervisor
+#    volumes:
+#      - "./app:/home/project/app"
+#      - "./docker/php/conf/supervisord.conf:/etc/supervisor/supervisord.conf"
+#      - "./docker/php/conf/supervisord-programs.conf:/etc/supervisor/conf.d/app.conf"
+#    command: [ "supervisord", "-c", "/etc/supervisor/supervisord.conf" ]
+#    depends_on:
+#      - php

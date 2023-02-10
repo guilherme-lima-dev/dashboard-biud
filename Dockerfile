@@ -34,7 +34,6 @@ RUN set -ex \
         #&& pecl install redis \
        # && docker-php-ext-enable redis.so
 
-
 RUN docker-php-ext-install pdo pdo_pgsql
 
 RUN apk add --update linux-headers

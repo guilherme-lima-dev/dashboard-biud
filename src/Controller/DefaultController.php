@@ -23,24 +23,6 @@ class DefaultController extends AbstractController
         return $this->render('default/index.html.twig');
     }
 
-    #[Route('/api/webhook', name: 'webhook')]
-    public function webhook(LoggerInterface $logger, Request $request):JsonResponse
-    {
-        $content = json_decode($request->getContent(), true);
-        $referenceCode = $content["id"];
-        $discounts = $content['total_discounts'];
-        $value = $content['total_price'];
-        $products = $content['line_items'];
-        $client = $content['constumer'];
-        $date = $content['created_at'];
-
-
-        $logger->info(json_encode($content));
-
-
-        return new JsonResponse();
-    }
-
     #[Route('/api/users', name: 'users')]
     public function getUsers():JsonResponse
     {

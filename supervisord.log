@@ -1,0 +1,42 @@
+2023-02-09 17:11:57,853 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-02-09 17:11:57,860 INFO supervisord started with pid 1
+2023-02-09 17:11:58,863 INFO spawned: 'messenger-consume_00' with pid 8
+2023-02-09 17:11:58,866 INFO spawned: 'messenger-consume_01' with pid 9
+2023-02-09 17:11:58,920 INFO success: messenger-consume_00 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:11:58,920 INFO success: messenger-consume_01 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:33,261 WARN received SIGQUIT indicating exit request
+2023-02-09 17:15:33,264 INFO waiting for messenger-consume_00, messenger-consume_01 to die
+2023-02-09 17:15:33,280 INFO stopped: messenger-consume_01 (terminated by SIGTERM)
+2023-02-09 17:15:33,287 INFO stopped: messenger-consume_00 (terminated by SIGTERM)
+2023-02-09 17:15:49,361 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-02-09 17:15:49,366 INFO supervisord started with pid 1
+2023-02-09 17:15:50,369 INFO spawned: 'messenger-consume_00' with pid 8
+2023-02-09 17:15:50,371 INFO spawned: 'messenger-consume_01' with pid 9
+2023-02-09 17:15:50,391 INFO success: messenger-consume_00 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:50,392 INFO success: messenger-consume_01 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:53,088 INFO exited: messenger-consume_00 (exit status 1; not expected)
+2023-02-09 17:15:53,089 INFO exited: messenger-consume_01 (exit status 1; not expected)
+2023-02-09 17:15:54,092 INFO spawned: 'messenger-consume_00' with pid 14
+2023-02-09 17:15:54,094 INFO spawned: 'messenger-consume_01' with pid 15
+2023-02-09 17:15:54,111 INFO success: messenger-consume_00 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:54,112 INFO success: messenger-consume_01 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:56,523 INFO exited: messenger-consume_00 (exit status 1; not expected)
+2023-02-09 17:15:56,525 INFO exited: messenger-consume_01 (exit status 1; not expected)
+2023-02-09 17:15:57,533 INFO spawned: 'messenger-consume_00' with pid 20
+2023-02-09 17:15:57,542 INFO spawned: 'messenger-consume_01' with pid 21
+2023-02-09 17:15:57,574 INFO success: messenger-consume_00 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:15:57,574 INFO success: messenger-consume_01 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:16:35,040 WARN received SIGQUIT indicating exit request
+2023-02-09 17:16:35,043 INFO waiting for messenger-consume_00, messenger-consume_01 to die
+2023-02-09 17:16:35,050 INFO stopped: messenger-consume_01 (terminated by SIGTERM)
+2023-02-09 17:16:35,055 INFO stopped: messenger-consume_00 (terminated by SIGTERM)
+2023-02-09 17:18:02,292 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+2023-02-09 17:18:02,300 INFO supervisord started with pid 1
+2023-02-09 17:18:03,302 INFO spawned: 'messenger-consume_00' with pid 8
+2023-02-09 17:18:03,304 INFO spawned: 'messenger-consume_01' with pid 9
+2023-02-09 17:18:03,323 INFO success: messenger-consume_00 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:18:03,323 INFO success: messenger-consume_01 entered RUNNING state, process has stayed up for > than 0 seconds (startsecs)
+2023-02-09 17:18:08,331 WARN received SIGQUIT indicating exit request
+2023-02-09 17:18:08,332 INFO waiting for messenger-consume_00, messenger-consume_01 to die
+2023-02-09 17:18:08,333 INFO stopped: messenger-consume_00 (terminated by SIGTERM)
+2023-02-09 17:18:08,335 INFO stopped: messenger-consume_01 (terminated by SIGTERM)
