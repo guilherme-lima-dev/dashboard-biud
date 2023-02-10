@@ -1,0 +1,23 @@
+Dashboard:
+    type: object
+    config:
+        description: "aggregate values in purchase per client"
+        fields:
+            valueTotal:
+                type: "Float"
+                description: "Value total all purchases"
+            qtdClients:
+                type: "Int"
+                description: "Quantity all clients"
+            qtdProduct:
+                type: "Int"
+                description: "Quantity all products"
+            qtdPurchases:
+                type: "Int"
+                description: "Quantity all purchases"
+            valueTotalDiscounts:
+                type: "Float"
+                description: "Value total discounts"
+            valueTotalProducts:
+                type: "Float"
+                description: "Sum price all products"

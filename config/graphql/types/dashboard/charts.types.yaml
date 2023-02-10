@@ -1,0 +1,11 @@
+Charts:
+    type: object
+    config:
+        description: "Charts for dashboard"
+        fields:
+            purchasesClient:
+                type: "[ClientsCalculator]"
+                description: "chart total and mean purchases of client"
+            purchaseProduct:
+                type: "[ProductsCalculator]"
+                description: "chart total and mean purchases of client"

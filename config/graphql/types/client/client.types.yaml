@@ -1,0 +1,17 @@
+Client:
+    type: object
+    config:
+        description: "Purchase Type"
+        fields:
+            id:
+                type: "Int"
+                description: "Purchase ID"
+            name:
+                type: "String"
+                description: "Client name"
+            email:
+                type: "String"
+                description: "Client email"
+            codeUnique:
+                type: "String"
+                description: "Client Code Unique"

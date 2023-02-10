@@ -14,9 +14,17 @@ import React from 'react';
 import {createRoot} from 'react-dom/client';
 import {BrowserRouter as Router} from 'react-router-dom';
 import Home from './components/Home';
+import {ThemeProvider} from "react-bootstrap";
 
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<Router>
-    <Home/>
-</Router>);
+root.render(
+    <ThemeProvider
+        breakpoints={['xxxl', 'xxl', 'xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+        minBreakpoint="xxs"
+    >
+        <Router>
+            <Home/>
+        </Router>
+    </ThemeProvider>
+);

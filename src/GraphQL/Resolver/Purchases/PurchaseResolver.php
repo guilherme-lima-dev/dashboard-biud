@@ -1,13 +1,14 @@
 <?php
 
-namespace App\GraphQL\Resolver;
+namespace App\GraphQL\Resolver\Purchases;
 
+use App\Entity\Purchase;
 use Doctrine\ORM\EntityManager;
 use Overblog\GraphQLBundle\Definition\Argument;
 use Overblog\GraphQLBundle\Definition\Resolver\AliasedInterface;
 use Overblog\GraphQLBundle\Definition\Resolver\QueryInterface;
 
-class ProductCollectionResolver implements QueryInterface, AliasedInterface
+class PurchaseResolver implements QueryInterface, AliasedInterface
 {
 
     /**
@@ -21,16 +22,16 @@ class ProductCollectionResolver implements QueryInterface, AliasedInterface
         $this->em = $em;
     }
 
-    public function resolve(Argument $argument): array
+    public function resolve(Argument $argument)
     {
-        $products = $this->em->getRepository('App\Entity\Product')->findBy([], [], $argument['limit'], 0);
-        return ['products' => $products];
+        $purchase = $this->em->getRepository(Purchase::class)->find($argument['id']);
+        return $purchase;
     }
 
     public static function getAliases(): array
     {
         return [
-            'resolve' => 'ProductCollection'
+            'resolve' => 'Purchase'
         ];
     }
 }

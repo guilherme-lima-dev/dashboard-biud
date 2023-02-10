@@ -17,3 +17,46 @@ Query:
                         description: "Limit query"
                         type: "Int"
                 resolve: "@=resolver('ProductCollection', [args])"
+            purchase:
+                type: "Purchase"
+                args:
+                    id:
+                        description: "Get product by ID"
+                        type: "Int"
+                resolve: "@=resolver('Purchase', [args])"
+            purchases_collection:
+                type: "PurchasesCollection"
+                args:
+                    client:
+                        description: "Name, email or Code of Client"
+                        type: "String"
+                    codReference:
+                        description: "code reference of purchase"
+                        type: "String"
+                    value:
+                        description: "Value of Purchase"
+                        type: "Float"
+                    date:
+                        description: "Date of purchase"
+                        type: "DateTime"
+                resolve: "@=resolver('PurchasesCollection', [args])"
+            client:
+                type: "Client"
+                args:
+                    id:
+                        description: "Get product by ID"
+                        type: "Int"
+                resolve: "@=resolver('Client', [args])"
+            clients_collection:
+                type: "ClientsCollection"
+                args:
+                    limit:
+                        description: "Limit query"
+                        type: "Int"
+                resolve: "@=resolver('ClientCollection', [args])"
+            dashboard:
+                type: "Dashboard"
+                resolve: "@=resolver('Dashboard')"
+            charts:
+                type: "Charts"
+                resolve: "@=resolver('Charts')"

@@ -1,0 +1,23 @@
+Purchase:
+    type: object
+    config:
+        description: "Purchase Type"
+        fields:
+            id:
+                type: "Int"
+                description: "Purchase ID"
+            client:
+                type: "Client"
+                description: "Purchase Client"
+            codReference:
+                type: "String"
+                description: "Purchase code reference"
+            discounts:
+                type: "Float"
+                description: "Purchase discounts"
+            value:
+                type: "Float"
+                description: "Purchase value"
+            date:
+                type: "DateTime"
+                description: "Purchase date"

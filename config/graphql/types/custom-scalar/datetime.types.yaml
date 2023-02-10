@@ -1,0 +1,5 @@
+DateTime:
+  type: custom-scalar
+  config:
+    description: "Send DateTime in format (yyyy-mm-dd hh:ii:ss)"
+    scalarType: '@=newObject("App\\CustomScalarGraphQL\\DateTimeType")'

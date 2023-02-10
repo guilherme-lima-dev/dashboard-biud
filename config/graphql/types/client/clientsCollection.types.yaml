@@ -1,0 +1,8 @@
+ClientsCollection:
+    type: object
+    config:
+        description: "Clients list"
+        fields:
+            products:
+                type: "[Client]"
+                description: "purchase"

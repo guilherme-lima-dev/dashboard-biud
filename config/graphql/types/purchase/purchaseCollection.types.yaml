@@ -1,0 +1,8 @@
+PurchasesCollection:
+    type: object
+    config:
+        description: "Purchases list"
+        fields:
+            purchases:
+                type: "[Purchase]"
+                description: "purchase"

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\GraphQL\Resolver;
+namespace App\GraphQL\Resolver\Products;
 
 use Doctrine\ORM\EntityManager;
 use Overblog\GraphQLBundle\Definition\Argument;

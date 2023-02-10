@@ -1,0 +1,14 @@
+ProductsCalculator:
+    type: object
+    config:
+        description: "Calculator mean and total purchases client"
+        fields:
+            name:
+                type: "String"
+                description: "title product"
+            Media:
+                type: "Float"
+                description: "a mean purchases of product"
+            Total:
+                type: "Float"
+                description: "Total purchases of product"
